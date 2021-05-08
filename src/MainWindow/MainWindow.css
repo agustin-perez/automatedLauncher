@@ -1,0 +1,49 @@
+.mainWindow{
+    display: inline-block;
+}
+
+.header{
+    display: inline-block;
+}
+
+.news{
+    left: 15px;
+    width: 50%;
+}
+
+.footer{
+    position: absolute;
+    display: block;
+    align-items: center;
+    bottom: 15px;
+    width: 100%;
+}
+
+.settingsButton{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+}
+
+.settingsButton:hover, .settingsButton:active{
+    border: none;
+    background-color: transparent;
+}
+
+.settingsIcon{
+    top: 0px;
+    left: 0px;
+    width: 27px;
+    height: 27px;
+}
+
+.installButton{
+    height: 50px;
+    width: -webkit-calc(100% - 30px);
+    width:    -moz-calc(100% - 30px);
+    width:         calc(100% - 30px);
+}

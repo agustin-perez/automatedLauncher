@@ -1,0 +1,21 @@
+.backButton{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+}
+
+.backButton:hover, .backButton:active{
+    border: none;
+    background-color: transparent;
+}
+
+.backIcon{
+    top: 0px;
+    left: 0px;
+    width: 27px;
+    height: 27px;
+}
