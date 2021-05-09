@@ -1,5 +1,9 @@
+html, body {
+  background-color: transparent;
+}
 .App {
   text-align: center;
+  overflow: auto hidden;
 }
 
 .App-logo {
@@ -39,8 +43,8 @@
 
 
 button{
-  border-radius: 7px;
-  border: 1px solid darkgray;
+  border-radius: 10px;
+  border: none;
   background-color: gainsboro;
 }
 
@@ -53,7 +57,35 @@ button:hover{
   cursor: pointer;
 }
 
+button:hover{
+  background: #8dffb9;
+  transition: all .35s;
+}
+
 button:active{
   background-color: darkgray;
   transform: translateY(1px);
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: none; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: gainsboro; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkgray; 
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: dimgray; 
+}
+
+

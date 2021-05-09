@@ -1,5 +1,6 @@
 .mainWindow{
-    display: inline-block;
+    overflow: auto hidden;
+    height: 99vh;
 }
 
 .header{
@@ -46,4 +47,30 @@
     width: -webkit-calc(100% - 30px);
     width:    -moz-calc(100% - 30px);
     width:         calc(100% - 30px);
+}
+
+.dynamicWrapper{
+    display: flex;
+    height: -webkit-calc(100% - 160px);
+    height:    -moz-calc(100% - 160px);
+    height:         calc(100% - 160px);
+}
+
+.news{
+    overflow: auto;
+    margin-left: 15px;
+    width: -webkit-calc(100% - 300px);
+    width:    -moz-calc(100% - 300px);
+    width:         calc(100% - 300px);
+    border: 1px solid gainsboro;
+    border-radius: 7px;
+    box-shadow: -2px 2px 5px gainsboro;
+}
+
+.menu{
+    position: absolute;
+    overflow: auto hidden;
+    width: 290px;
+    margin-left: 15px;
+    right: 0px;
 }

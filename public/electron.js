@@ -7,10 +7,12 @@ let mainWindow;
  
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width:800,
-        height:600,
+        width:1024,
+        height:768,
+        minWidth:800,
+        minHeight:600,
+        backgroundColor: '#FFFFFF',
         show: false,
-        backgroundColor: '#FFFFFF'
     });
     //const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './build/index.html')}`;
     //mainWindow.loadURL('http://localhost:3000');
