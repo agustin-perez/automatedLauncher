@@ -1,10 +1,29 @@
+const launch = require('@xmcl/core'); 
+let { login, Authentication, offline } = require('@xmcl/user');
+//import { Authenticator } from 'minecraft-launcher-core';
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');   
 const path = require('path');
 const url = require('url');
- 
+const ipcMain = require('electron').ipcMain;
+
 let mainWindow;
- 
+
+//const launcher = new Client();
+
+async function triggerLauncher(ops){
+    const launchObj = launch;
+    launch.ops = ops; 
+    const process = await launchObj;
+    process.stdout.on('data', (b) => {
+        console.log(b.toString());
+    });
+    process.stderr.on('data', (b) => {
+        console.log(b.toString());
+    });
+}
+
+
 function createWindow() {
     mainWindow = new BrowserWindow({
         width:1024,
@@ -13,9 +32,11 @@ function createWindow() {
         minHeight:600,
         backgroundColor: '#FFFFFF',
         show: false,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
     });
-    //const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './build/index.html')}`;
-    //mainWindow.loadURL('http://localhost:3000');
     
     if(isDev){
         mainWindow.loadURL('http://localhost:3000')
@@ -33,4 +54,21 @@ function createWindow() {
     });
     mainWindow.removeMenu();
 }
+
 app.on('ready', createWindow);
+
+ipcMain.on('request-minecraft-launch', async (event, opts, authKeypair) => {
+    console.log('Starting minecraft launch process');
+    const optsParse = JSON.parse(JSON.stringify(opts));
+    let authentication = Authentication = offline(authKeypair.username)
+    //const authParse = JSON.parse(authKeypair);
+    const arg = {
+        ...optsParse,
+        accessToken: authentication.accessToken,
+        gameProfile: authentication.selectedProfile
+    }
+    console.log('------------------------------------');
+    console.log(arg);
+    console.log('------------------------------------');
+    triggerLauncher(arg);
+});
